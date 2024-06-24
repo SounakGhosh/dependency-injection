@@ -1,4 +1,4 @@
-package sounak.springframework.dependency_injection;
+package sounak.springframework.di;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
