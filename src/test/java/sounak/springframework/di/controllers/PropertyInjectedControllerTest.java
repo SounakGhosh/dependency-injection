@@ -2,9 +2,8 @@ package sounak.springframework.di.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sounak.springframework.di.services.GreetingServiceImpl;
-
-import static org.junit.jupiter.api.Assertions.*;
+import sounak.springframework.di.services.ConstructorInjectedGreetingService;
+import sounak.springframework.di.services.PropertyInjectedGreetingService;
 
 /**
  * Created by sounak on 24-06-2024.
@@ -16,7 +15,7 @@ class PropertyInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller = new PropertyInjectedController();
-        controller.greetingService = new GreetingServiceImpl();
+        controller.greetingService = new PropertyInjectedGreetingService();
     }
 
     @Test

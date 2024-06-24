@@ -5,6 +5,6 @@ package sounak.springframework.di.services;
  */
 public interface GreetingService {
 
-    public String sayGreeting();
+    String sayGreeting();
 
 }

@@ -1,5 +1,6 @@
 package sounak.springframework.di.controllers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import sounak.springframework.di.services.GreetingService;
 
@@ -13,7 +14,7 @@ public class ConstructorInjectedController {
     // As of Spring 4.3, classes with a single constructor can omit the @Autowired annotation.
     private final GreetingService greetingService;
 
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 

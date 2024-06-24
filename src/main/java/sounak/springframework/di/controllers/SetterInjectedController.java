@@ -1,6 +1,7 @@
 package sounak.springframework.di.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import sounak.springframework.di.services.GreetingService;
 
@@ -10,9 +11,10 @@ import sounak.springframework.di.services.GreetingService;
 @Controller
 public class SetterInjectedController {
 
-    @Autowired
     private GreetingService greetingService;
 
+    @Qualifier("setterInjectedGreetingService")
+    @Autowired
     public void setGreetingService(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
