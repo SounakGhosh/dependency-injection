@@ -1,6 +1,7 @@
 package sounak.springframework.di.controllers;
 
 import org.springframework.stereotype.Controller;
+import sounak.springframework.di.services.GreetingService;
 
 /**
  * Created by sounak on 23-06-2024.
@@ -8,8 +9,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MyController {
 
+    private final GreetingService greetingService;
+
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
     public String sayHello() {
-        System.out.println("Hello World!!!");
-        return "Hi Folks!";
+        return greetingService.sayGreeting();
     }
 }

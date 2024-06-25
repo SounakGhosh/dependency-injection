@@ -14,11 +14,13 @@ public class DependencyInjectionApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
 
-        MyController myController = (MyController) context.getBean("myController");
+        System.out.println();
 
-        String greeting = myController.sayHello();
+        System.out.println("------ Primary Bean ------");
 
-        System.out.println(greeting);
+        MyController myController = (MyController) context.getBean("myController");;
+
+        System.out.println(myController.sayHello());
         System.out.println();
 
         System.out.println("------ Property Injection ------");
