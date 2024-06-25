@@ -18,14 +18,14 @@ public class DependencyInjectionApplication {
         System.out.println(i18nController.sayHello());
         System.out.println();
 
-        System.out.println("------ Primary Bean ------");
+        System.out.println("--- Primary Bean ---");
 
         MyController myController = (MyController) context.getBean("myController");;
 
         System.out.println(myController.sayHello());
         System.out.println();
 
-        System.out.println("------ Property Injection ------");
+        System.out.println("--- Property Injection ---");
 
         PropertyInjectedController propertyInjectedController =
                 (PropertyInjectedController) context.getBean("propertyInjectedController");
@@ -33,7 +33,7 @@ public class DependencyInjectionApplication {
         System.out.println(propertyInjectedController.getGreeting());
         System.out.println();
 
-        System.out.println("------ Setter Injection ------");
+        System.out.println("--- Setter Injection ---");
 
         SetterInjectedController setterInjectedController =
                 (SetterInjectedController) context.getBean("setterInjectedController");
@@ -41,7 +41,7 @@ public class DependencyInjectionApplication {
         System.out.println(setterInjectedController.getGreeting());
         System.out.println();
 
-        System.out.println("------ Constructor Injection ------");
+        System.out.println("--- Constructor Injection ---");
 
         ConstructorInjectedController constructorInjectedController =
                 (ConstructorInjectedController) context.getBean("constructorInjectedController");
