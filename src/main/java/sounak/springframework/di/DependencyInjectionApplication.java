@@ -25,7 +25,7 @@ public class DependencyInjectionApplication {
 
         System.out.println("--- Primary Bean ---");
 
-        MyController myController = (MyController) context.getBean("myController");;
+        MyController myController = (MyController) context.getBean("myController");
 
         System.out.println(myController.sayHello());
         System.out.println();
