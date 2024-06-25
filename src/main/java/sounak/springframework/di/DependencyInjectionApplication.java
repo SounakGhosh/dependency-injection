@@ -3,10 +3,7 @@ package sounak.springframework.di;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import sounak.springframework.di.controllers.ConstructorInjectedController;
-import sounak.springframework.di.controllers.MyController;
-import sounak.springframework.di.controllers.PropertyInjectedController;
-import sounak.springframework.di.controllers.SetterInjectedController;
+import sounak.springframework.di.controllers.*;
 
 @SpringBootApplication
 public class DependencyInjectionApplication {
@@ -14,6 +11,11 @@ public class DependencyInjectionApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(DependencyInjectionApplication.class, args);
 
+        System.out.println();
+
+        I18nController i18nController = (I18nController) context.getBean("i18nController");
+
+        System.out.println(i18nController.sayHello());
         System.out.println();
 
         System.out.println("------ Primary Bean ------");
