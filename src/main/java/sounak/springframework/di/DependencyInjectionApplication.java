@@ -3,8 +3,10 @@ package sounak.springframework.di;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import sounak.springframework.di.controllers.*;
 
+@ComponentScan(basePackages = {"sounak.springframework.di", "sounak.springframework.pets"})
 @SpringBootApplication
 public class DependencyInjectionApplication {
 
@@ -43,7 +45,6 @@ public class DependencyInjectionApplication {
         ConstructorInjectedController constructorInjectedController =
                 (ConstructorInjectedController) context.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
-
+        System.out.println();
     }
-
 }

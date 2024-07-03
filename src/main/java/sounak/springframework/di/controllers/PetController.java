@@ -1,7 +1,7 @@
 package sounak.springframework.di.controllers;
 
 import org.springframework.stereotype.Controller;
-import sounak.springframework.di.services.PetService;
+import sounak.springframework.pets.PetService;
 
 /**
  * Created by sounak on 25-06-2024.
