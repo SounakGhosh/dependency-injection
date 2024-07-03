@@ -7,12 +7,31 @@ import org.springframework.context.annotation.Profile;
 import sounak.springframework.di.repositories.EnglishGreetingRepository;
 import sounak.springframework.di.repositories.EnglishGreetingRepositoryImpl;
 import sounak.springframework.di.services.*;
+import sounak.springframework.pets.PetService;
+import sounak.springframework.pets.PetServiceFactory;
 
 /**
  * Created by sounak on 03-07-2024.
  */
 @Configuration
 public class GreetingServiceConfig {
+
+    @Profile({"dog", "default"})
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Profile("cat")
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
 
     @Profile({"ES", "default"})
     @Bean("i18nService")
@@ -21,7 +40,7 @@ public class GreetingServiceConfig {
     }
 
     @Bean
-    EnglishGreetingRepository englishGreetingRepository(){
+    EnglishGreetingRepository englishGreetingRepository() {
         return new EnglishGreetingRepositoryImpl();
     }
 
