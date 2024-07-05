@@ -1,9 +1,6 @@
 package sounak.springframework.di.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import sounak.springframework.di.repositories.EnglishGreetingRepository;
 import sounak.springframework.di.repositories.EnglishGreetingRepositoryImpl;
 import sounak.springframework.di.services.*;
@@ -13,6 +10,7 @@ import sounak.springframework.pets.PetServiceFactory;
 /**
  * Created by sounak on 03-07-2024.
  */
+@ImportResource("classpath:di-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -56,7 +54,7 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-    @Bean
+//    @Bean
     ConstructorInjectedGreetingService constructorInjectedGreetingService() {
         return new ConstructorInjectedGreetingService();
     }
