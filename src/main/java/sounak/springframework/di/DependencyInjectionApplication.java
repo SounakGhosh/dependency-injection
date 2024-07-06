@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import sounak.springframework.di.controllers.*;
+import sounak.springframework.di.datasource.FakeDataSource;
 import sounak.springframework.di.services.PrototypeBean;
 import sounak.springframework.di.services.SingletonBean;
 
@@ -57,6 +58,13 @@ public class DependencyInjectionApplication {
         System.out.println(prototypeBean1.getMyScope());
         PrototypeBean prototypeBean2 = context.getBean(PrototypeBean.class);
         System.out.println(prototypeBean2.getMyScope());
+        System.out.println();
+
+        System.out.println("--- External Properties ---");
+        FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUsername());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getJdbcurl());
         System.out.println();
     }
 }

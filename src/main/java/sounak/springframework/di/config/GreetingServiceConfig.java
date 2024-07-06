@@ -1,6 +1,8 @@
 package sounak.springframework.di.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
+import sounak.springframework.di.datasource.FakeDataSource;
 import sounak.springframework.di.repositories.EnglishGreetingRepository;
 import sounak.springframework.di.repositories.EnglishGreetingRepositoryImpl;
 import sounak.springframework.di.services.*;
@@ -10,9 +12,21 @@ import sounak.springframework.pets.PetServiceFactory;
 /**
  * Created by sounak on 03-07-2024.
  */
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:di-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${fakedb.username}") String username,
+                                  @Value("${fakedb.password}") String password,
+                                  @Value("${fakedb.jdbcurl}") String jdbcurl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+        return fakeDataSource;
+    }
 
     @Profile({"dog", "default"})
     @Bean
@@ -54,7 +68,7 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-//    @Bean
+    //    @Bean
     ConstructorInjectedGreetingService constructorInjectedGreetingService() {
         return new ConstructorInjectedGreetingService();
     }
