@@ -12,7 +12,6 @@ import sounak.springframework.pets.PetServiceFactory;
 /**
  * Created by sounak on 03-07-2024.
  */
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:di-config.xml")
 @Configuration
 public class GreetingServiceConfig {
