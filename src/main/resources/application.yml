@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: dependency-injection
+  profiles:
+    active: EN,cat
+fakedb:
+  username: YmlUserName
+  password: YmlPassword
+  jdbcurl: YmlUrl
