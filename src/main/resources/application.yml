@@ -2,7 +2,7 @@ spring:
   application:
     name: dependency-injection
   profiles:
-    active: EN,cat
+    active: EN,cat,dev
 fakedb:
   username: YmlUserName
   password: YmlPassword

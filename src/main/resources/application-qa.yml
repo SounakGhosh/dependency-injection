@@ -1,0 +1,4 @@
+fakedb:
+  username: YmlQADBUser
+  password: YmlQAPassword
+  jdbcurl: YmlURLforQADB

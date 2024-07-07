@@ -1,0 +1,4 @@
+fakedb:
+  username: YmlDevDBUser
+  password: YmlDevPassword
+  jdbcurl: YmlURLforDevDB
