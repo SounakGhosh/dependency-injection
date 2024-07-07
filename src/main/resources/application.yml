@@ -2,8 +2,21 @@ spring:
   application:
     name: dependency-injection
   profiles:
-    active: EN,cat,dev
+    active:
+      - EN
+      - cat
+      - prod
 fakedb:
   username: YmlUserName
   password: YmlPassword
   jdbcurl: YmlUrl
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+fakedb:
+  username: YmlProdUserName
+  password: YmlProdPassword
+  jdbcurl: YmlProdUrl
