@@ -1,6 +1,5 @@
 package sounak.springframework.di.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import sounak.springframework.di.datasource.FakeDataSource;
 import sounak.springframework.di.repositories.EnglishGreetingRepository;
@@ -17,13 +16,11 @@ import sounak.springframework.pets.PetServiceFactory;
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${fakedb.username}") String username,
-                                  @Value("${fakedb.password}") String password,
-                                  @Value("${fakedb.jdbcurl}") String jdbcurl) {
+    FakeDataSource fakeDataSource(DiConfiguration diConfiguration) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcurl(jdbcurl);
+        fakeDataSource.setUsername(diConfiguration.getUsername());
+        fakeDataSource.setPassword(diConfiguration.getPassword());
+        fakeDataSource.setJdbcurl(diConfiguration.getJdbcurl());
         return fakeDataSource;
     }
 

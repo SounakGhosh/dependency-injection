@@ -3,6 +3,7 @@ package sounak.springframework.di;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import sounak.springframework.di.config.DiConfiguration;
 import sounak.springframework.di.controllers.*;
 import sounak.springframework.di.datasource.FakeDataSource;
 import sounak.springframework.di.services.PrototypeBean;
@@ -65,6 +66,13 @@ public class DependencyInjectionApplication {
         System.out.println(fakeDataSource.getUsername());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getJdbcurl());
+        System.out.println();
+
+        System.out.println("--- Properties Binding ---");
+        DiConfiguration diConfiguration = context.getBean(DiConfiguration.class);
+        System.out.println(diConfiguration.getUsername());
+        System.out.println(diConfiguration.getPassword());
+        System.out.println(diConfiguration.getJdbcurl());
         System.out.println();
     }
 }
