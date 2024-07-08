@@ -1,5 +1,6 @@
 package sounak.springframework.di.config;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 import sounak.springframework.di.datasource.FakeDataSource;
 import sounak.springframework.di.repositories.EnglishGreetingRepository;
@@ -11,16 +12,17 @@ import sounak.springframework.pets.PetServiceFactory;
 /**
  * Created by sounak on 03-07-2024.
  */
+@EnableConfigurationProperties(DiConstructorConfig.class)
 @ImportResource("classpath:di-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(DiConfiguration diConfiguration) {
+    FakeDataSource fakeDataSource(DiConstructorConfig diConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(diConfiguration.getUsername());
-        fakeDataSource.setPassword(diConfiguration.getPassword());
-        fakeDataSource.setJdbcurl(diConfiguration.getJdbcurl());
+        fakeDataSource.setUsername(diConstructorConfig.getUsername());
+        fakeDataSource.setPassword(diConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(diConstructorConfig.getJdbcurl());
         return fakeDataSource;
     }
 
